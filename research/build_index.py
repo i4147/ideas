@@ -81,18 +81,44 @@ A("Every file contains: problem, prior art with versions/dates, the pivot (if an
 A("## Written\n")
 A("| # | File | Difficulty | Effort | Prior art | Words |")
 A("|---|---|---|---|---|---|")
+gaps = []
 for r in rows:
     num = r["path"][:2]
+    if icon(r["prior"]) == "🟢 gap":
+        gaps.append(r)
     A(f"| {num} | [{r['title'].split('—',1)[-1].strip() if '—' in r['title'] else r['title']}](ideas/{r['path']}) "
       f"| {r['score']}/10 | {r['effort']} | {icon(r['prior'])} | {r['words']} |")
 A("")
-A("## Still to write\n")
-A("These are the harder half of the deduplicated list. Numbering and scores are reserved; each will get the same "
-  "treatment (including a fresh prior-art check).\n")
-A("| # | Name | Idea | Difficulty |")
+if PLANNED: A("## Still to write\n")
+if PLANNED:
+    A("These are the harder half of the deduplicated list. Numbering and scores are reserved; each will get the same "
+      "treatment (including a fresh prior-art check).\n")
+    A("| # | Name | Idea | Difficulty |")
+    A("|---|---|---|---|")
+    for n, name, desc, score in PLANNED:
+        A(f"| {n} | `{name}` | {desc} | {score}/10 |")
+    A("")
+A("## The real gaps — where nothing comparable exists\n")
+A("If you only build a few things, these are the ones with no maintained equivalent on PyPI "
+  "(easiest first):\n")
+A("| # | Idea | Difficulty | Why it's open |")
 A("|---|---|---|---|")
-for n, name, desc, score in PLANNED:
-    A(f"| {n} | `{name}` | {desc} | {score}/10 |")
+WHY = {
+    "10": "size budgets per path with PR-scoped regression mode; nobody ships this",
+    "20": "read-only triage of stray SQLite files; stdlib-only, obviously useful",
+    "22": "no tool redacts shell history, and it's the most secret-dense file on a laptop",
+    "24": "build-context size and secret leakage are invisible before `docker build`",
+    "25": "fixture cost/duplication audit; pytest exposes the graph, nobody reports it",
+    "54": "fixture graph is invisible in pytest; authoritative data is one hook away",
+    "64": "instruction-level doc diff; deterministic, no competitor",
+    "75": "semantic config diff across machines, with a curated effect table",
+}
+for r in gaps:
+    num = r["path"][:2]
+    after_dash = r["title"].split("—")[-1].strip()
+    label = after_dash.split("(")[0].strip().strip("`") or after_dash[:40]
+    A(f"| {num} | [`{label}`](ideas/{r['path']}) | {r['score']}/10 | "
+      f"{WHY.get(num, 'no maintained equivalent')} |")
 A("")
 A("## Dedup map\n")
 A("The source list had 115 entries; these collapsed into one idea each:\n")

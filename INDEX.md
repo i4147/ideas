@@ -1,6 +1,6 @@
 # Idea index — merged, deduplicated, sorted by difficulty
 
-**58 specs written** (of 80 unique ideas after dedup) · target: Linux, Python 3.12+ · prior-art column verified against the live PyPI JSON API (see `research/pypi_probe.py`).
+**80 specs written** (of 80 unique ideas after dedup) · target: Linux, Python 3.12+ · prior-art column verified against the live PyPI JSON API (see `research/pypi_probe.py`).
 
 Legend — 🟢 **gap**: nothing comparable on PyPI, build it · 🟡 **partial**: something adjacent exists, pivot needed · 🔴 **solved**: a maintained tool already does this, read the pivot or skip.
 
@@ -70,35 +70,43 @@ Every file contains: problem, prior art with versions/dates, the pivot (if any),
 | 56 | [`bug-bundle` (a shareable, redacted reproduction package)](ideas/56_bug-bundle.md) | 5/10 | ~5 days | 🟡 partial | 850 |
 | 57 | [`archlint` (look inside an archive before you extract it)](ideas/57_archlint.md) | 5/10 | ~5 days | 🟡 partial | 858 |
 | 58 | [`db-query` (named SQL shortcuts, pretty results)](ideas/58_db-query.md) | 5/10 | ~5 days | 🔴 solved | 954 |
+| 59 | [`shell2py` (record what you did, get a real Python script)](ideas/59_shell2py.md) | 5/10 | ~5 days | 🟡 partial | 974 |
+| 60 | [`entrypoint-finder` ("which file should I open first?")](ideas/60_codebase-navigator.md) | 5/10 | ~5 days | 🔴 solved | 786 |
+| 61 | [`upgrade-impact` (which dependency upgrade will break *your* code)](ideas/61_upgrade-impact.md) | 5/10 | ~6 days | 🔴 solved | 764 |
+| 62 | [`release-captain` (one command: bump, changelog, build, tag, checklist)](ideas/62_release-captain.md) | 5/10 | ~5 days | 🔴 solved | 947 |
+| 63 | [`api-runner` (chained API calls defined in YAML)](ideas/63_api-runner.md) | 5/10 | ~6 days | 🔴 solved | 814 |
+| 64 | [`doc-diff` (what actually changed in the instructions)](ideas/64_doc-diff.md) | 5/10 | ~6 days | 🟢 gap | 873 |
+| 65 | [`ai-session-sanitizer` (export and scrub coding-agent transcripts)](ideas/65_ai-session-sanitizer.md) | 5/10 | ~5 days | 🟡 partial | 880 |
+| 66 | [`later` (local-first read-it-later + bookmark search)](ideas/66_read-later.md) | 5/10 | ~6 days | 🔴 solved | 749 |
+| 67 | [`zettel` (Zettelkasten in Markdown, with a graph you can see)](ideas/67_zettel.md) | 5/10 | ~6 days | 🔴 solved | 756 |
+| 68 | [`ledger-import` (bank CSVs → plain-text accounting)](ideas/68_ledger-import.md) | 5/10 | ~5 days | 🔴 solved | 698 |
+| 69 | [`homeprobe` (one dashboard for the services you actually run)](ideas/69_homeprobe.md) | 5/10 | ~5 days | 🟡 partial | 846 |
+| 70 | [`script-inventory` (find the one-off scripts nobody remembers)](ideas/70_orphaned-scripts.md) | 5/10 | ~5 days | 🟡 partial | 794 |
+| 71 | [`switch` (start work on a project in one command)](ideas/71_context-switch.md) | 6/10 | ~7 days | 🔴 solved | 886 |
+| 72 | [`log-rca` (root-cause summary for a huge log)](ideas/72_ai-log-rca.md) | 6/10 | ~7 days | 🟡 partial | 887 |
+| 73 | [`prompt-vault` (versioned, runnable prompts)](ideas/73_prompt-vault.md) | 6/10 | ~7 days | 🔴 solved | 895 |
+| 74 | [`model-bench` (same prompt, many local models, side by side)](ideas/74_prompt-bench.md) | 6/10 | ~6 days | 🔴 solved | 885 |
+| 75 | [`config-diff` (why does this machine behave differently?)](ideas/75_config-diff.md) | 6/10 | ~7 days | 🟢 gap | 854 |
+| 76 | [`git-rewrite-history` (safe bulk history rewriting)](ideas/76_git-rewrite-history.md) | 6/10 | ~6 days · most of it spent telling the user not to | 🔴 solved | 819 |
+| 77 | [`aws-cost-estimator` (what will this stack cost?)](ideas/77_aws-cost-estimator.md) | 6/10 | ~8 days | 🔴 solved | 792 |
+| 78 | [`narrate` (turn a config or JSON blob into a story)](ideas/78_narrative-summary.md) | 6/10 | ~6 days | ⚪ unclear | 877 |
+| 79 | [`sortby-content` (organize files by what they contain)](ideas/79_semantic-organizer.md) | 7/10 | ~8 days | ⚪ unclear | 934 |
+| 80 | [`semantic-secret-scan` (find secrets that don't look like secrets)](ideas/80_semantic-secret-scan.md) | 7/10 | ~9 days | ⚪ unclear | 1025 |
 
-## Still to write
+## The real gaps — where nothing comparable exists
 
-These are the harder half of the deduplicated list. Numbering and scores are reserved; each will get the same treatment (including a fresh prior-art check).
+If you only build a few things, these are the ones with no maintained equivalent on PyPI (easiest first):
 
-| # | Name | Idea | Difficulty |
+| # | Idea | Difficulty | Why it's open |
 |---|---|---|---|
-| 59 | `shell2py` | recorded shell session → documented Python script | 5/10 |
-| 60 | `codebase-navigator` | "which file should I open?" for large repos | 6/10 |
-| 61 | `upgrade-impact` | rank upgrades by breakage risk for your code | 5/10 |
-| 62 | `release-captain` | version bump → changelog → build → tag → checklist | 5/10 |
-| 63 | `api-runner` | YAML-defined API sequencer with variable passing | 5/10 |
-| 64 | `doc-diff` | human-readable "what changed in the docs" diff | 5/10 |
-| 65 | `ai-session-sanitizer` | export/scrub LLM coding sessions | 5/10 |
-| 66 | `read-later` | local-first read-it-later + bookmark search | 5/10 |
-| 67 | `zettel` | Zettelkasten notes + Mermaid knowledge graph | 5/10 |
-| 68 | `ledger-import` | bank CSV → plain-text ledger with rules | 5/10 |
-| 69 | `homeprobe` | service/TLS/latency dashboard from a TOML list | 5/10 |
-| 70 | `orphaned-scripts` | find one-off scripts superseded by tooling | 5/10 |
-| 71 | `context-switch` | session profiles: dir + env + services in one command | 6/10 |
-| 72 | `ai-log-rca` | local-LLM root-cause summary of a huge log | 6/10 |
-| 73 | `prompt-vault` | versioned, runnable prompt library | 6/10 |
-| 74 | `prompt-bench` | same prompt across local models, side by side | 6/10 |
-| 75 | `config-diff` | explain config drift across machines in plain English | 6/10 |
-| 76 | `git-rewrite-history` | safe bulk history rewriting | 6/10 |
-| 77 | `aws-cost-estimator` | cost estimate from terraform/cdk | 6/10 |
-| 78 | `narrative-summary` | config/JSON → prose summary | 6/10 |
-| 79 | `semantic-organizer` | content-based file sorting with local embeddings | 7/10 |
-| 80 | `semantic-secret-scan` | LLM-assisted semantic secret detection | 7/10 |
+| 10 | [`repo-budget`](ideas/10_repo-budget.md) | 2/10 | size budgets per path with PR-scoped regression mode; nobody ships this |
+| 20 | [`sqlite-scout`](ideas/20_sqlite-scout.md) | 3/10 | read-only triage of stray SQLite files; stdlib-only, obviously useful |
+| 22 | [`shell-history-redactor`](ideas/22_shell-history-redactor.md) | 3/10 | no tool redacts shell history, and it's the most secret-dense file on a laptop |
+| 24 | [`dockerignore-doctor`](ideas/24_dockerignore-doctor.md) | 3/10 | build-context size and secret leakage are invisible before `docker build` |
+| 25 | [`fixture-slim`](ideas/25_fixture-slim.md) | 3/10 | fixture cost/duplication audit; pytest exposes the graph, nobody reports it |
+| 54 | [`pytest-fixture-graph`](ideas/54_pytest-fixture-graph.md) | 5/10 | fixture graph is invisible in pytest; authoritative data is one hook away |
+| 64 | [`doc-diff`](ideas/64_doc-diff.md) | 5/10 | instruction-level doc diff; deterministic, no competitor |
+| 75 | [`config-diff`](ideas/75_config-diff.md) | 6/10 | semantic config diff across machines, with a curated effect table |
 
 ## Dedup map
 
