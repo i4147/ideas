@@ -1,0 +1,6 @@
+# Not a Python package — this file only configures the spec guard in tests/.
+#   pip install pytest && python3 -m pytest -q
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q --strict-markers"

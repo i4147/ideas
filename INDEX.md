@@ -1,6 +1,6 @@
 # Idea index — merged, deduplicated, sorted by difficulty
 
-**80 specs written** (of 80 unique ideas after dedup) · target: Linux, Python 3.12+ · prior-art column verified against the live PyPI JSON API (see `research/pypi_probe.py`).
+**80 specs written** (of 80 unique ideas after dedup) · target: Linux, Python 3.12+ · prior-art column verified against the live PyPI JSON API (see `arena/pypi_probe.py`).
 
 Legend — 🟢 **gap**: nothing comparable on PyPI, build it · 🟡 **partial**: something adjacent exists, pivot needed · 🔴 **solved**: a maintained tool already does this, read the pivot or skip.
 
@@ -89,8 +89,8 @@ Every file contains: problem, prior art with versions/dates, the pivot (if any),
 | 75 | [`config-diff` (why does this machine behave differently?)](ideas/75_config-diff.md) | 6/10 | ~7 days | 🟢 gap | 854 |
 | 76 | [`git-rewrite-history` (safe bulk history rewriting)](ideas/76_git-rewrite-history.md) | 6/10 | ~6 days · most of it spent telling the user not to | 🔴 solved | 819 |
 | 77 | [`aws-cost-estimator` (what will this stack cost?)](ideas/77_aws-cost-estimator.md) | 6/10 | ~8 days | 🔴 solved | 792 |
-| 78 | [`narrate` (turn a config or JSON blob into a story)](ideas/78_narrative-summary.md) | 6/10 | ~6 days | ⚪ unclear | 877 |
-| 79 | [`sortby-content` (organize files by what they contain)](ideas/79_semantic-organizer.md) | 7/10 | ~8 days | ⚪ unclear | 934 |
+| 78 | [`narrate` (turn a config or JSON blob into a story)](ideas/78_narrative-summary.md) | 6/10 | ~6 days | 🟡 partial | 877 |
+| 79 | [`sortby-content` (organize files by what they contain)](ideas/79_semantic-organizer.md) | 7/10 | ~8 days | 🟡 partial | 934 |
 | 80 | [`semantic-secret-scan` (find secrets that don't look like secrets)](ideas/80_semantic-secret-scan.md) | 7/10 | ~9 days | ⚪ unclear | 1025 |
 
 ## The real gaps — where nothing comparable exists
@@ -141,4 +141,4 @@ The source list had 115 entries; these collapsed into one idea each:
 
 ## How prior art was verified
 
-A script queried `https://pypi.org/pypi/<name>/json` for ~250 candidate and reference package names, recording existence, latest version, last upload date, and summary (`research/pypi_probe.py`). Where a better-known non-PyPI tool exists (`age`, `git-cliff`, `prism`, `hurl`, `infracost`), it is named even though it isn't on PyPI. Version numbers and dates quoted in the files come from that probe run.
+A script queried `https://pypi.org/pypi/<name>/json` for ~250 candidate and reference package names, recording existence, latest version, last upload date, and summary (`arena/pypi_probe.py`). Where a better-known non-PyPI tool exists (`age`, `git-cliff`, `prism`, `hurl`, `infracost`), it is named even though it isn't on PyPI. Version numbers and dates quoted in the files come from that probe run.
